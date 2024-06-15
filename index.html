@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="css/all.css" rel="stylesheet"  media="all" type="text/css" />
+<title>博客</title>
+<style>
+    .round1_icon {
+        width: 200px; /* 设置图片的宽度 */
+        height: 200px; /* 设置图片的高度 */
+        border-radius: 50%;
+        bottom: -440px; /* 距离底部的距离 */
+        left: 150px; /* 距离左侧的距离 */
+        position: relative;
+    }
+    .round2_icon {
+        transition: transform 0.3s; /* 添加一个动画过渡效果 */
+    }
+
+    .round2_icon:hover::before, .round2_icon:hover::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        background: rgba(255, 255, 255, 0.5);
+        transition: transform 0.3s;
+        z-index: -1;
+    }
+
+    .round2_icon:hover::before {
+        left: 0;
+        transform-origin: right;
+        transform: scaleX(0);
+    }
+
+    .round2_icon:hover::after {
+        right: 0;
+        transform-origin: left;
+        transform: scaleX(0);
+    }
+
+    
+    .round2_icon:hover {
+        transform-origin: center;
+        transform: rotate(360deg);
+    }
+     .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: relative;
+        border: 2px solid rgba(132, 228, 248, 0.5);
+    }
+    .line, .line2, .line3 {
+        position: absolute;
+        background-color: rgba(132, 228, 248, 0.5);
+    }
+    .line {
+        width: 1.5px;
+        height: 17px;
+        top: 65%;
+        left: 59.5%;
+        transform: translate(-50%, -50%) rotate(30deg);
+    }
+    .line2 {
+        width: 1.5px;
+        height: 17px;
+        top: 65%;
+        left: 43.5%;
+        transform: translate(-50%, -50%) rotate(-30deg);
+    }
+    .line3 {
+        width: 1.6px;
+        height: 25px;
+        top: 54%;
+        left: 51.5%;
+        transform: translate(-50%, -50%);
+    } 
+    .cen_text2 {
+          text-align: center;
+          margin: 0 auto;
+          width: 50%;
+          color: black; /* 将文本颜色设置为白色 */
+          font-family: "Microsoft YaHei", sans-serif;
+          font-family: "楷体", sans-serif;
+          padding-top: 30px;
+          font-size: 40px;
+    }
+    .scissors {
+      border-top: 1px dashed orange;
+    }
+   
+     body {
+        background-image: url('./images/789.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        } 
+    .cen_te {
+        padding-top: 225px; /* 或者根据需要调整具体的数值 */
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+        color: black; /* 将文本颜色设置为黑色 */
+        font-family: "楷体", sans-serif;
+        font-size: 20px;
+    }
+    button {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .cen_text {
+        padding-top: 0px; /* 或者根据需要调整具体的数值 */
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+        color: black; /* 将文本颜色设置为黑色 */
+        font-family: "楷体", sans-serif;
+        font-size: 40px;
+    }
+    .cen_ll {
+        color: black; /* 将文本颜色设置为黑色 */
+        font-family: "楷体", sans-serif;
+        font-size: 26px;
+        text-align: center;
+    }
+    .cen_xx {
+        padding-left: 150px;
+        margin: 0 auto;
+        width: 50%;
+        color: black; /* 将文本颜色设置为白色 */
+        font-family: "楷体", sans-serif;
+        font-size: 23px;
+    }
+    .slider-indicator li {
+        width: 8px;
+        height: 8px;
+        margin: 4px;
+        border-radius: 50%;
+        background: #fff;
+        opacity: 0.4;
+        cursor: pointer;
+    }
+
+    .slider-indicator li.active {
+        width: 12px;
+        height: 12px;
+        opacity: 1;
+    }
+    .scissors {
+            border-top: 1px dashed orange;
+        }
+        .work_con {
+            margin-top: 20px;
+        }
+        .work_xxx {
+            text-align: center;
+            font-size: 28px;
+            font-family: "楷体", sans-serif;
+        }
+        .work_xx {
+            text-align: center;
+            font-size: 28px;
+            font-family: "楷体", sans-serif;
+        }
+        .programe {
+            margin-top: 20px;
+        }
+        .work_time {
+            font-weight: bold;
+            font-size: 26px;
+            font-family: "楷体", sans-serif;
+        }
+        .work_text {
+            margin-left: 100px;
+        }
+        .triangle-left {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-right: 20px solid #000;
+            border-bottom: 10px solid transparent;
+            position: absolute;
+            left: -20px;
+        }
+        .exCon {
+            font-family: "楷体", sans-serif;
+            padding: 10px;
+            border: 1px solid #000;
+            position: relative;
+            font-size: 26px;
+            }
+        .cen_text1 {  
+            padding-top: 50px;
+            text-align: center;
+            margin: 0 auto;
+            width: 50%;
+            color: black; /* 将文本颜色设置为白色 */
+            font-family: "Microsoft YaHei", sans-serif;
+            font-family: "楷体", sans-serif;
+            font-size: 34px;
+        }
+      .dot {               
+	width: 14px;          
+	height: 14px;              
+	border-radius: 50%;           
+	box-sizing: border-box;      
+	border: solid 1.5px rgba(16, 17, 17, 0.5);
+	background-color: rgb(153, 246, 251);
+	position: absolute;
+	right: -20px;
+    top: 50%;
+	transform: translateY(-50%);
+	} 
+	
+	.slider-cator li {
+			position: fixed;
+			right: 10px; /* 调整右边距 */
+			transform: translateY(-50%);
+			top: 50%;
+			list-style: none;
+			margin-bottom: 10px;
+			text-align: right; /* 将文本右对齐 */
+			}
+	
+		.slider-cator li .dot {
+		   position: absolute;
+		   left: -20px;
+		}
+		.slider-cator li:nth-child(1) {
+		  top: 30%;
+		}
+		
+		.slider-cator li:nth-child(2) {
+		  top: 40%;
+		}
+		
+		.slider-cator li:nth-child(3) {
+		  top: 50%;
+		}
+		
+		.slider-cator li:nth-child(4) {
+		  top: 60%;
+		}
+		
+		.slider-cator li:nth-child(5) {
+		  top: 70%;
+		}
+        .grbk {
+            display:none; 
+            position: absolute; 
+            top: 50%; left: 50%; 
+            transform: translate(-50%, -50%);
+        }
+
+    
+</style>
+</head>
+<body>
+<section id="section1">
+    <div class="cen_te" style="text-align: center; margin: 0 auto; width: 50%;">
+    <h1>业精于勤；荒于嬉；行成于思；毁于随。</h1>
+    <hr>
+    <h2>林吉展</h2>
+    <h3>2736656551@qq.com | 15397366967</h3>
+    <h2>浙江 温州</h2>
+</div>
+</section>
+<section id="section2" style="display: none;">
+    <img src="images/6666.jpg" class="round1_icon round2_icon">
+    <div class="cen_text" style="text-align: center; margin: 0 auto; width: 50%;"></div>
+    <p class="cen_text">基本资料</p>
+    <h2 class="cen_ll"> &nbsp;&nbsp;&nbsp;&nbsp;毕业于浙江安防云计算机应用专业，熟悉前端后端基础，办公软件，java基础。</h2>	
+    <table class="cen_xx">
+        
+        <tbody>
+            <tr>
+                <td>姓名 | 林吉展</td>
+                <td>手机 | 15397366967</td>
+            </tr>
+            <tr>
+                <td>性别 | 男</td>
+                <td>邮箱 | 2736656551@qq.com</td>
+            </tr>
+            <tr>
+                <td>出生 | 2004.01.23</td>
+                <td>QQ号 | 2736656551</td>
+            </tr>
+            <tr>
+                <td>学历 | 大专</td>
+                <td>学校 | 浙江安防职业技术学校</td>
+            </tr>
+            <tr>
+            	<td>户籍 | 浙江温州</td>
+                <td>专业 | 计算机应用</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section id="section3" style="display: none;">
+    <h1 class="cen_text1">教育经历</h1>
+    <div class="work_time">2年<br>浙江安防职业技术学院</div>
+    <div class="work_text">
+    <div class="triangle-left"></div>
+    <div class="exCon">
+    <h4>学习时间：2022/06 -- 2024/06</h4>
+    <p>学习技能：</p>
+    <p>大学时间完成了所有的学业，并参与了很多项目研发工作，配合老师和同学攻关了很多难题。</p>
+    <p>1.掌握了办公五剑客，Word，PPT，excel，ps。</p>       
+    <p>2.掌握了web前后端开发基础，Java基础的开发，数据库基本应用。</p> 
+    </div>
+    </div>
+    </div>
+</section>
+<section id="section4" style="display: none;">
+    <h1 class="cen_text2">工作经验</h1>
+  <div class="scissors"></div>
+  <p class="work_xxx"><strong>逆风的方向更适合飞翔，我不怕千万人阻拦只怕自己投降。</strong></p>
+  <p class="work_xxx"><strong>学而不思则惘，思而不学则殆!——孔子</strong></p>
+  <div class="work_con">
+    <div class="programe">
+      <div class="work_time"><br></div>
+      <div class="work_text">
+        <div class="triangle-left"></div>
+        <div class="exCon">
+          <h4></h4>
+          <!-- <h5>开发工具：VS2015，VSCode，ORACLE</h5> -->
+          <p></p>
+          <p></p> 
+          <p></p>       
+        </div>
+      </div> 
+    </div>
+</section>
+<section id="section5" class="grbk">
+<p class="work_xx">个人博客</p>
+<a href="http://ljzbk.top"><span class="work_bb">点击访问</span>></a>
+</section>
+<div id="toggleButton" onclick="changeColorAndToggleSection()">
+    <div style="position: fixed; bottom: 0; width: 100%;">
+        <div class="circle" style="margin: 0 auto;">
+            <div class="line"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </div>
+</div>
+    <ul class="slider-cator">
+        <li><div class="dot"></div></li>
+        <li><div class="dot"></div></li>
+        <li><div class="dot"></div></li>
+        <li><div class="dot"></div></li>
+        <li><div class="dot"></div></li>
+      </ul>
+<script>
+    let currentDot = 1;
+    const dots = document.querySelectorAll('.dot');
+    dots[0].style.backgroundColor = 'red';
+
+    function changeColor() {
+        const dots = document.querySelectorAll('.dot');
+        dots[currentDot - 1].style.backgroundColor = 'aquamarine';
+        if (currentDot < dots.length) {
+            dots[currentDot].style.backgroundColor = 'red';
+            currentDot++;
+        } else {
+            currentDot = 1;
+            dots[0].style.backgroundColor = 'red';
+        }
+    }
+    var currentIndex = 1; // 从 section2 开始
+
+    function toggleSection() {  
+        var sections = [  
+            document.getElementById('section1'),  
+            document.getElementById('section2'),  
+            document.getElementById('section3'),  
+            document.getElementById('section4'),  
+            document.getElementById('section5')  
+        ];  
+  
+        // 隐藏所有 sections  
+        sections.forEach(section => section.style.display = 'none');  
+  
+        // 显示当前索引对应的 section  
+        sections[currentIndex].style.display = 'block';  
+  
+        // 更新 currentIndex 为下一个 section 的索引  
+        currentIndex = (currentIndex + 1) % sections.length;  
+    } 
+
+    function changeColorAndToggleSection() {
+        changeColor();
+        toggleSection();
+    }
+</script>
+</body>
+</html>
